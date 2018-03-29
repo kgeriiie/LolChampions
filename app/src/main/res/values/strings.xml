@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">LolChampions</string>
+
+    <string name="bonus_attack_text">% bónusz Támadási sebzés</string>
+    <string name="ability_power_text">% Varázs sebzés</string>
+    <string name="empty_text"></string>
+
+</resources>
