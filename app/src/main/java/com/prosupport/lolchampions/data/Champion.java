@@ -2,6 +2,7 @@ package com.prosupport.lolchampions.data;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 import com.google.gson.annotations.SerializedName;
 
@@ -17,7 +18,9 @@ public class Champion implements Parcelable {
     public Image image;
     public Info info;
     public Skill passive;
+    public Stat stats;
 
+    public List<String> tags = new ArrayList<>();
     public List<Skin> skins = new ArrayList<>();
     @SerializedName("spells")
     public List<Skill> skills = new ArrayList<>();
@@ -36,6 +39,10 @@ public class Champion implements Parcelable {
         }
 
         return null;
+    }
+
+    public String getTags() {
+        return TextUtils.join(", ", tags);
     }
 
     /**

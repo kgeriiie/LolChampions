@@ -26,6 +26,6 @@ public class SplashActivity extends AppCompatActivity implements OnChampionsRead
 
     @Override
     public void onReady(List<Champion> champions) {
-        Log.d("test--","champions:" + champions.size());
+        Log.d("test--","champions:" + champions.get(0).skills.get(0).getCost());
     }
 }
