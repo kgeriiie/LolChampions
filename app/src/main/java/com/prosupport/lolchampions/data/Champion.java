@@ -25,6 +25,7 @@ public class Champion implements Parcelable {
     public String getDefaultImage() {
         if (image != null) {
             return image.getImageUrl();
+
         }
 
         return null;

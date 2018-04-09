@@ -1,4 +1,4 @@
-package com.prosupport.lolchampions.datamanager;
+package com.prosupport.lolchampions.services;
 
 import android.content.Context;
 
@@ -13,18 +13,18 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ChampionsManager {
+public class ChampionService {
 
     private List<Champion> champions = new ArrayList<>();
     private Context context;
 
     private static class InstanceHolder {
-        static ChampionsManager sInstance = new ChampionsManager();
+        static ChampionService sInstance = new ChampionService();
     }
 
-    private ChampionsManager() {}
+    private ChampionService() {}
 
-    public static ChampionsManager getInstance(Context context) {
+    public static ChampionService getInstance(Context context) {
         InstanceHolder.sInstance.context = context;
         return InstanceHolder.sInstance;
     }

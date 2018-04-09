@@ -6,22 +6,22 @@ import android.os.Handler;
 import android.os.Looper;
 
 import com.prosupport.lolchampions.data.Champion;
-import com.prosupport.lolchampions.datamanager.ChampionsManager;
+import com.prosupport.lolchampions.services.ChampionService;
 import com.prosupport.lolchampions.listeners.OnChampionsReadyListener;
 
 import java.util.List;
 
-public class DataLoaderAsyncTask extends AsyncTask<Context, Void, List<Champion>>{
+public class ChampionsAsyncTask extends AsyncTask<Context, Void, List<Champion>>{
 
     private OnChampionsReadyListener mOnChampionsReadyListener;
 
-    public DataLoaderAsyncTask(OnChampionsReadyListener listener) {
+    public ChampionsAsyncTask(OnChampionsReadyListener listener) {
         this.mOnChampionsReadyListener = listener;
     }
 
     @Override
     protected List<Champion> doInBackground(Context... ctx) {
-        return ChampionsManager.getInstance(ctx[0]).getChampions();
+        return ChampionService.getInstance(ctx[0]).getChampions();
     }
 
     @Override
