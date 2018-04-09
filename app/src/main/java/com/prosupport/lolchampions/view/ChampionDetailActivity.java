@@ -3,6 +3,7 @@ package com.prosupport.lolchampions.view;
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.Toolbar;
@@ -30,11 +31,14 @@ public class ChampionDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+//        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         AppBarLayout appBarLayout = findViewById(R.id.appbarLayout);
+        CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
+        collapsingToolbarLayout.setTitleEnabled(false);
 
+        setTitle("");
 
         ImageView headerImageView = findViewById(R.id.headerImageView);
 
@@ -42,6 +46,7 @@ public class ChampionDetailActivity extends AppCompatActivity {
         final ImageView heroImageView = findViewById(R.id.heroImageView);
         TextView nameTextView = findViewById(R.id.nameTxt);
         TextView titleTextView = findViewById(R.id.titleTxt);
+        TextView tagTextView = findViewById(R.id.tagTxt);
         TextView descriptionTextView = findViewById(R.id.descriptionTxt);
 
         mChampion = getIntent().getParcelableExtra(CHAMPION_EXTRA);
@@ -54,9 +59,8 @@ public class ChampionDetailActivity extends AppCompatActivity {
 
         nameTextView.setText(mChampion.name);
         titleTextView.setText(mChampion.title);
+        tagTextView.setText(mChampion.getTags());
         descriptionTextView.setText(mChampion.description);
-
-
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override

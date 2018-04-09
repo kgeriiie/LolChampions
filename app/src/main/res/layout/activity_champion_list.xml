@@ -6,20 +6,34 @@
     android:layout_height="match_parent"
     tools:context=".view.ChampionsActivity">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_height="?attr/actionBarSize"
+    <FrameLayout
+        android:id="@+id/toolbarContainer"
         android:layout_width="match_parent"
-        android:background="?attr/colorPrimary"
-        app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-        app:layout_collapseMode="pin"/>
+        android:layout_height="?attr/actionBarSize">
+        
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_width="match_parent"
+            android:background="?attr/colorPrimary"
+            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            app:layout_collapseMode="pin"/>
+        
+        <ImageView
+            android:layout_width="122dp"
+            android:layout_height="48dp"
+            android:alpha="0.8"
+            android:src="@drawable/lol_logo_light"
+            android:layout_gravity="center"/>
+    </FrameLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:clipToPadding="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar" />
+        app:layout_constraintTop_toBottomOf="@id/toolbarContainer" />
 </android.support.constraint.ConstraintLayout>

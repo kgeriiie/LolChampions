@@ -43,7 +43,34 @@ public class Champion implements Parcelable {
     }
 
     public String getTags() {
-        return TextUtils.join(", ", tags);
+        return "(" + TextUtils.join(", ", tags) + ")";
+    }
+
+    protected Champion(Parcel in) {
+        id = in.readInt();
+        name = in.readString();
+        description = in.readString();
+        title = in.readString();
+        image = in.readParcelable(Image.class.getClassLoader());
+        info = in.readParcelable(Info.class.getClassLoader());
+        passive = in.readParcelable(Skill.class.getClassLoader());
+        tags = in.createStringArrayList();
+        skins = in.createTypedArrayList(Skin.CREATOR);
+        skills = in.createTypedArrayList(Skill.CREATOR);
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeInt(id);
+        dest.writeString(name);
+        dest.writeString(description);
+        dest.writeString(title);
+        dest.writeParcelable(image, flags);
+        dest.writeParcelable(info, flags);
+        dest.writeParcelable(passive, flags);
+        dest.writeStringList(tags);
+        dest.writeTypedList(skins);
+        dest.writeTypedList(skills);
     }
 
     /**
@@ -54,38 +81,10 @@ public class Champion implements Parcelable {
         return 0;
     }
 
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(this.id);
-        dest.writeString(this.name);
-        dest.writeString(this.description);
-        dest.writeString(this.title);
-        dest.writeParcelable(this.image, flags);
-        dest.writeParcelable(this.info, flags);
-        dest.writeParcelable(this.passive, flags);
-        dest.writeTypedList(this.skins);
-        dest.writeTypedList(this.skills);
-    }
-
-    public Champion() {
-    }
-
-    protected Champion(Parcel in) {
-        this.id = in.readInt();
-        this.name = in.readString();
-        this.description = in.readString();
-        this.title = in.readString();
-        this.image = in.readParcelable(Image.class.getClassLoader());
-        this.info = in.readParcelable(Info.class.getClassLoader());
-        this.passive = in.readParcelable(Skill.class.getClassLoader());
-        this.skins = in.createTypedArrayList(Skin.CREATOR);
-        this.skills = in.createTypedArrayList(Skill.CREATOR);
-    }
-
-    public static final Parcelable.Creator<Champion> CREATOR = new Parcelable.Creator<Champion>() {
+    public static final Creator<Champion> CREATOR = new Creator<Champion>() {
         @Override
-        public Champion createFromParcel(Parcel source) {
-            return new Champion(source);
+        public Champion createFromParcel(Parcel in) {
+            return new Champion(in);
         }
 
         @Override

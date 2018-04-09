@@ -34,6 +34,8 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        setTitle("");
+
         mRecyclerView = findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(this);

@@ -4,7 +4,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 
-import com.prosupport.lolchampions.async.DataLoaderAsyncTask;
+import com.prosupport.lolchampions.async.ChampionsAsyncTask;
 import com.prosupport.lolchampions.data.Champion;
 import com.prosupport.lolchampions.listeners.OnChampionsReadyListener;
 
@@ -21,7 +21,7 @@ public class SplashActivity extends AppCompatActivity implements OnChampionsRead
 //        List<Champion> championList = ChampionsManager.getInstance(this).getChampions();
 
 //      Async
-        new DataLoaderAsyncTask(this).execute(this);
+        new ChampionsAsyncTask(this).execute(this);
     }
 
     @Override
