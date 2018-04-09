@@ -18,8 +18,8 @@ public class Skill implements Parcelable {
     private String sanitizedTooltip;
 
     public int maxrank;
-    public String costBurn;
-    public String rangeBurn;
+    private String costBurn;
+    private String rangeBurn;
     public Image image;
 
     private List<String> effectBurn = new ArrayList<>();
@@ -28,7 +28,7 @@ public class Skill implements Parcelable {
     private Map<String, String> skillValueReplacementMap = new HashMap<>();
 
     public String getSanitizedTooltip() {
-        if (sanitizedTooltip != null && skillValueReplacementMap.isEmpty()) {
+        if (sanitizedTooltip != null) {
             buildMap();
 
             for (String key : skillValueReplacementMap.keySet()) {
@@ -38,21 +38,41 @@ public class Skill implements Parcelable {
             return sanitizedTooltip;
         }
 
-        return sanitizedTooltip;
+        return null;
+    }
+
+    public String getRange() {
+        return rangeBurn;
+    }
+
+    public String getCost() {
+        if (resource != null) {
+            buildMap();
+
+            for (String key : skillValueReplacementMap.keySet()) {
+                resource = resource.replace(key, skillValueReplacementMap.get(key));
+            }
+        }
+
+        return resource;
     }
 
     @SuppressLint("DefaultLocale")
     private void buildMap() {
-        String effKeyMask = "{{ e%d }}";
-        String varKeyMask = "{{ %s }}";
+        if (skillValueReplacementMap.isEmpty()) {
+            String effKeyMask = "{{ e%d }}";
+            String varKeyMask = "{{ %s }}";
 
-        for (int effIndex = 0; effIndex < effectBurn.size(); effIndex ++) {
-            skillValueReplacementMap.put(String.format(effKeyMask, effIndex), effectBurn.get(effIndex));
-        }
+            for (int effIndex = 0; effIndex < effectBurn.size(); effIndex++) {
+                skillValueReplacementMap.put(String.format(effKeyMask, effIndex), effectBurn.get(effIndex));
+            }
 
-        for (int varIndex = 0; varIndex < vars.size(); varIndex ++) {
-            Variable variable = vars.get(varIndex);
-            skillValueReplacementMap.put(String.format(varKeyMask, variable.key), String.format("%d%s", (int)(variable.getFirstCoEff() * 100), variable.translateLinkVal()));
+            for (int varIndex = 0; varIndex < vars.size(); varIndex++) {
+                Variable variable = vars.get(varIndex);
+                skillValueReplacementMap.put(String.format(varKeyMask, variable.key), String.format("%d%s", (int) (variable.getFirstCoEff() * 100), variable.translateLinkVal()));
+            }
+
+            skillValueReplacementMap.put("{{ cost }}", costBurn);
         }
     }
 
