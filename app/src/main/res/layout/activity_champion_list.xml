@@ -1,39 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#d7d7e8"
     tools:context=".view.ChampionsActivity">
 
-    <FrameLayout
-        android:id="@+id/toolbarContainer"
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/defaultDetailAppbar"
         android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize">
-        
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_height="?attr/actionBarSize"
+        android:layout_height="wrap_content"
+        android:minHeight="?android:attr/actionBarSize"
+        android:fitsSystemWindows="true">
+
+        <FrameLayout
+            android:id="@+id/toolbarContainer"
             android:layout_width="match_parent"
-            android:background="?attr/colorPrimary"
-            app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-            app:layout_collapseMode="pin"/>
-        
-        <ImageView
-            android:layout_width="122dp"
-            android:layout_height="48dp"
-            android:alpha="0.8"
-            android:src="@drawable/lol_logo_light"
-            android:layout_gravity="center"/>
-    </FrameLayout>
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:minHeight="?android:attr/actionBarSize">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/toolbar_bg"
+                android:src="@drawable/toolbar_bg"
+                android:layout_gravity="center"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:layout_gravity="bottom"
+                android:elevation="3dp"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+                app:layout_collapseMode="pin"/>
+
+            <ImageView
+                android:id="@+id/appLogoIv"
+                android:layout_width="122dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:padding="5dp"
+                android:alpha="0.8"
+                android:src="@drawable/lol_logo_light"
+                android:layout_gravity="bottom|center"/>
+        </FrameLayout>
+
+    </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:clipToPadding="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbarContainer" />
-</android.support.constraint.ConstraintLayout>
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+</android.support.design.widget.CoordinatorLayout>

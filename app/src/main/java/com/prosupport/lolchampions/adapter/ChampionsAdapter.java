@@ -97,8 +97,8 @@ public class ChampionsAdapter extends RecyclerView.Adapter<ChampionsAdapter.View
 
         public void bind(final Champion champion, final OnItemClickListener<Champion> onItemClickListener) {
             RequestOptions options = new RequestOptions();
-            options.placeholder(R.drawable.splash_bg_land);
-            options.error(R.drawable.splash_bg_land);
+            options.placeholder(R.drawable.placeholder);
+            options.error(R.drawable.placeholder);
             options.centerCrop();
             Glide.with(avatarImageView.getContext()).load(champion.getDefaultSkinImage()).apply(options).into(avatarImageView);
             nameTextView.setText(champion.name);

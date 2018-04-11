@@ -10,7 +10,7 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:src="@drawable/splash_bg_port"
+        android:src="@drawable/splash_bg_dark_port"
         android:scaleType="centerCrop"/>
 
 </RelativeLayout>

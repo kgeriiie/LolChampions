@@ -10,6 +10,8 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.prosupport.lolchampions.R;
 import com.prosupport.lolchampions.adapter.ChampionsAdapter;
@@ -25,6 +27,7 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLayoutManager;
     private ChampionsAdapter mAdapter;
+    private ImageView mToolbarLogoIv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,8 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
         mRecyclerView.setLayoutManager(mLayoutManager);
         mAdapter = new ChampionsAdapter(null);
         mRecyclerView.setAdapter(mAdapter);
+        mToolbarLogoIv = findViewById(R.id.appLogoIv);
+
         new ChampionsAsyncTask(this).execute(this);
     }
 
@@ -51,6 +56,7 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
 
         final MenuItem myActionMenuItem = menu.findItem( R.id.action_search);
         final SearchView searchView = (SearchView) myActionMenuItem.getActionView();
+
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -62,9 +68,22 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
             }
             @Override
             public boolean onQueryTextChange(String s) {
-                // UserFeedback.show( "SearchOnQueryTextChanged: " + s);
                 mAdapter.searchFor(s);
                 return false;
+            }
+        });
+
+        myActionMenuItem.setOnActionExpandListener(new MenuItem.OnActionExpandListener() {
+            @Override
+            public boolean onMenuItemActionExpand(MenuItem menuItem) {
+                mToolbarLogoIv.setVisibility(View.GONE);
+                return true;
+            }
+
+            @Override
+            public boolean onMenuItemActionCollapse(MenuItem menuItem) {
+                mToolbarLogoIv.setVisibility(View.VISIBLE);
+                return true;
             }
         });
 

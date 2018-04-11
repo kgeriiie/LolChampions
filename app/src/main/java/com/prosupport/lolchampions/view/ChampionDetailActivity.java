@@ -53,8 +53,8 @@ public class ChampionDetailActivity extends AppCompatActivity {
         Glide.with(this).load(mChampion.getDefaultImage()).into(heroImageView);
 
         RequestOptions options = new RequestOptions();
-        options.placeholder(R.drawable.splash_bg_land);
-        options.error(R.drawable.splash_bg_land);
+        options.placeholder(R.drawable.placeholder);
+        options.error(R.drawable.placeholder);
         Glide.with(this).load(mChampion.getDefaultSkinImage()).apply(options).into(headerImageView);
 
         nameTextView.setText(mChampion.name);
