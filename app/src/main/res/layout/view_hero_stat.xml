@@ -8,7 +8,7 @@
 
     <TextView
         android:id="@+id/lifeTitleTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/damageTitleTxt"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -22,7 +22,7 @@
 
     <TextView
         android:id="@+id/damageTitleTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@id/lifeTitleTxt"
@@ -35,7 +35,7 @@
 
     <TextView
         android:id="@+id/armorTitleTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toEndOf="@+id/damageTitleTxt"
@@ -44,11 +44,12 @@
         android:gravity="center"
         android:textColor="#C8C8C8"
         android:textSize="12sp"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/lifeTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toStartOf="@+id/damageTxt"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
@@ -58,11 +59,12 @@
         android:gravity="center"
         android:textColor="#575757"
         android:textSize="14sp"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/damageTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/lifeTxt"
         app:layout_constraintStart_toEndOf="@id/lifeTxt"
@@ -70,11 +72,12 @@
         android:textColor="#575757"
         android:textSize="14sp"
         android:gravity="center"
+        android:textStyle="bold"
         />
 
     <TextView
         android:id="@+id/armorTxt"
-        android:layout_width="80dp"
+        android:layout_width="90dp"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="@id/lifeTxt"
         app:layout_constraintStart_toEndOf="@id/damageTxt"
@@ -82,6 +85,7 @@
         android:textSize="14sp"
         android:textColor="#575757"
         android:gravity="center"
+        android:textStyle="bold"
         />
 
 </android.support.constraint.ConstraintLayout>

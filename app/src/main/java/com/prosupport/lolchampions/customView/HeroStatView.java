@@ -42,14 +42,22 @@ public class HeroStatView extends ConstraintLayout {
         double damage = 0;
         double armor = 0;
 
+        String hpPerLevel = "";
+        String damagePerLevel = "";
+        String armorPerLevel = "";
+
         if (champion != null && champion.stats != null) {
             hp = champion.stats.hp;
             damage = champion.stats.attackdamage;
             armor = champion.stats.armor;
+
+//            hpPerLevel = " (+"+ String.valueOf(champion.stats.hpperlevel) + "per szint)";
+//            damagePerLevel = " (+"+ String.valueOf(champion.stats.attackdamageperlevel) + "per szint)";
+//            armorPerLevel = " (+"+ String.valueOf(champion.stats.armorperlevel) + "/ szint)";
         }
 
-        lifeTxt.setText(String.valueOf(hp));
-        damageTxt.setText(String.valueOf(damage));
-        armorTxt.setText(String.valueOf(armor));
+        lifeTxt.setText(String.valueOf(hp) + hpPerLevel);
+        damageTxt.setText(String.valueOf(damage) + damagePerLevel);
+        armorTxt.setText(String.valueOf(armor) + armorPerLevel);
     }
 }
