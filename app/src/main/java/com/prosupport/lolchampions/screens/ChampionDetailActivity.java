@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.prosupport.lolchampions.R;
+import com.prosupport.lolchampions.customView.HeroSkillView;
 import com.prosupport.lolchampions.customView.HeroStatView;
 import com.prosupport.lolchampions.data.Champion;
 
@@ -66,6 +67,8 @@ public class ChampionDetailActivity extends AppCompatActivity {
 
         statView.update(mChampion);
 
+        updateSkills();
+
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
@@ -105,5 +108,24 @@ public class ChampionDetailActivity extends AppCompatActivity {
     public void onBackPressed() {
         super.onBackPressed();
         overridePendingTransition(R.anim.anim_slide_in_right, R.anim.anim_slide_out_right);
+    }
+
+    private void updateSkills() {
+        if (mChampion == null || mChampion.skills == null || mChampion.skills.size() != 4) {
+            return;
+        }
+
+        HeroSkillView firstSkillView = findViewById(R.id.firstSkill);
+        HeroSkillView secondSkillView = findViewById(R.id.secondSkill);
+        HeroSkillView thirdSkillView = findViewById(R.id.thirdSkill);
+        HeroSkillView fourthSkillView = findViewById(R.id.fourthSkill);
+        HeroSkillView fifthSkillView = findViewById(R.id.fifthSkill);
+
+        firstSkillView.update(mChampion.passive);
+        secondSkillView.update(mChampion.skills.get(0));
+        thirdSkillView.update(mChampion.skills.get(1));
+        fourthSkillView.update(mChampion.skills.get(2));
+        fifthSkillView.update(mChampion.skills.get(3));
+
     }
 }

@@ -3,14 +3,17 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
 
     <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:id="@+id/skillImageView"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_margin="10dp"
         android:scaleType="centerCrop"
+        android:background="@drawable/shape_rounded"
+        android:layout_marginStart="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -20,11 +23,14 @@
         android:layout_width="0dp"
         android:layout_height="25dp"
         android:layout_marginEnd="10dp"
+        android:layout_marginStart="10dp"
         android:text="name"
+        android:textStyle="bold"
         android:textSize="15sp"
+        android:textColor="#575757"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageView"
-        app:layout_constraintTop_toTopOf="@id/imageView" />
+        app:layout_constraintStart_toEndOf="@id/skillImageView"
+        app:layout_constraintTop_toTopOf="@id/skillImageView" />
 
     <TextView
         android:id="@+id/costTxt"
@@ -32,11 +38,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:text="cost"
-        android:textSize="15sp"
-
+        android:textColor="#737373"
+        android:textSize="13sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@id/nameTxt"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -46,9 +51,10 @@
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
         android:text="range"
-        android:textSize="15sp"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        android:textColor="#737373"
+        android:textSize="13sp"
+        app:layout_constraintBottom_toBottomOf="@id/skillImageView"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/imageView" />
+        app:layout_constraintStart_toStartOf="@id/nameTxt" />
 
 </android.support.constraint.ConstraintLayout>

@@ -44,7 +44,6 @@
         android:gravity="center"
         android:textColor="#C8C8C8"
         android:textSize="12sp"
-        android:textStyle="bold"
         />
 
     <TextView

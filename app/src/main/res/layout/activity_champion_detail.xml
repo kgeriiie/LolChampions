@@ -10,14 +10,14 @@
         android:id="@+id/appbarLayout"
         android:layout_height="230dp"
         android:layout_width="match_parent"
-        android:minHeight="?attr/actionBarSize"
+        android:minHeight="?android:attr/actionBarSize"
         android:fitsSystemWindows="true">
 
         <android.support.design.widget.CollapsingToolbarLayout
             android:id="@+id/collapsingToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:contentScrim="?attr/colorPrimary"
+            app:contentScrim="?android:attr/colorPrimary"
             app:statusBarScrim="@android:color/transparent"
             android:visibility="visible"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
@@ -64,7 +64,7 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:theme="@style/Base.ThemeOverlay.AppCompat.Dark"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="?android:attr/actionBarSize"
                 android:layout_width="match_parent"
                 app:layout_collapseMode="pin"/>
         </android.support.design.widget.CollapsingToolbarLayout>
@@ -137,12 +137,63 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"/>
 
-            <include android:id="@+id/firstSkill" layout="@layout/view_skill"
+            <TextView
+                android:id="@+id/abilitiesTxt"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:textStyle="bold"
+                android:textSize="15sp"
+                android:textColor="#737373"
+                android:text="Képességei"
+                android:layout_margin="20dp"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/descriptionTxt"
                 app:layout_constraintEnd_toEndOf="parent"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/abilitiesTxt"
+                app:layout_constraintEnd_toEndOf="parent">
+                <com.prosupport.lolchampions.customView.HeroSkillView
+                    android:id="@+id/firstSkill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.prosupport.lolchampions.customView.HeroSkillView
+                    android:id="@+id/secondSkill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.prosupport.lolchampions.customView.HeroSkillView
+                    android:id="@+id/thirdSkill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.prosupport.lolchampions.customView.HeroSkillView
+                    android:id="@+id/fourthSkill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <com.prosupport.lolchampions.customView.HeroSkillView
+                    android:id="@+id/fifthSkill"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"/>
+
+            </LinearLayout>
         </android.support.constraint.ConstraintLayout>
 
 
