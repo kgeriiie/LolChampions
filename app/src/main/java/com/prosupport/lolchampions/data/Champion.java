@@ -54,6 +54,7 @@ public class Champion implements Parcelable {
         image = in.readParcelable(Image.class.getClassLoader());
         info = in.readParcelable(Info.class.getClassLoader());
         passive = in.readParcelable(Skill.class.getClassLoader());
+        stats = in.readParcelable(Stat.class.getClassLoader());
         tags = in.createStringArrayList();
         skins = in.createTypedArrayList(Skin.CREATOR);
         skills = in.createTypedArrayList(Skill.CREATOR);
@@ -68,6 +69,7 @@ public class Champion implements Parcelable {
         dest.writeParcelable(image, flags);
         dest.writeParcelable(info, flags);
         dest.writeParcelable(passive, flags);
+        dest.writeParcelable(stats, flags);
         dest.writeStringList(tags);
         dest.writeTypedList(skins);
         dest.writeTypedList(skills);

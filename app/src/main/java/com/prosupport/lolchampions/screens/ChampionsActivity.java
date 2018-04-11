@@ -1,4 +1,4 @@
-package com.prosupport.lolchampions.view;
+package com.prosupport.lolchampions.screens;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,4 +1,4 @@
-package com.prosupport.lolchampions.view;
+package com.prosupport.lolchampions.screens;
 
 import android.animation.ObjectAnimator;
 import android.os.Bundle;
@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.prosupport.lolchampions.R;
+import com.prosupport.lolchampions.customView.HeroStatView;
 import com.prosupport.lolchampions.data.Champion;
 
 public class ChampionDetailActivity extends AppCompatActivity {
@@ -31,8 +32,8 @@ public class ChampionDetailActivity extends AppCompatActivity {
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-//        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         AppBarLayout appBarLayout = findViewById(R.id.appbarLayout);
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
@@ -48,6 +49,7 @@ public class ChampionDetailActivity extends AppCompatActivity {
         TextView titleTextView = findViewById(R.id.titleTxt);
         TextView tagTextView = findViewById(R.id.tagTxt);
         TextView descriptionTextView = findViewById(R.id.descriptionTxt);
+        HeroStatView statView = findViewById(R.id.heroStatLayout);
 
         mChampion = getIntent().getParcelableExtra(CHAMPION_EXTRA);
         Glide.with(this).load(mChampion.getDefaultImage()).into(heroImageView);
@@ -61,6 +63,9 @@ public class ChampionDetailActivity extends AppCompatActivity {
         titleTextView.setText(mChampion.title);
         tagTextView.setText(mChampion.getTags());
         descriptionTextView.setText(mChampion.description);
+
+        statView.update(mChampion);
+
 
         appBarLayout.addOnOffsetChangedListener(new AppBarLayout.OnOffsetChangedListener() {
             @Override
