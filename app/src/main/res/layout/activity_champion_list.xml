@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".screens.ChampionsActivity"
+    android:background="#d7d7e8">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/defaultDetailAppbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@drawable/toolbar_bg"/>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_height="?android:attr/actionBarSize"
+                android:layout_width="match_parent"
+                android:layout_alignParentBottom="true"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
+
+            <ImageView
+                android:id="@+id/appLogoIv"
+                android:layout_width="122dp"
+                android:layout_height="?android:attr/actionBarSize"
+                android:padding="5dp"
+                android:alpha="0.8"
+                android:visibility="visible"
+                android:src="@drawable/lol_logo_light"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+</android.support.design.widget.CoordinatorLayout>
