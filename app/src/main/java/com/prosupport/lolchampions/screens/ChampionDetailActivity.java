@@ -35,12 +35,11 @@ public class ChampionDetailActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        setTitle("");
 
         AppBarLayout appBarLayout = findViewById(R.id.appbarLayout);
         CollapsingToolbarLayout collapsingToolbarLayout = findViewById(R.id.collapsingToolbar);
         collapsingToolbarLayout.setTitleEnabled(false);
-
-        setTitle("");
 
         ImageView headerImageView = findViewById(R.id.headerImageView);
 
@@ -53,6 +52,7 @@ public class ChampionDetailActivity extends AppCompatActivity {
         HeroStatView statView = findViewById(R.id.heroStatLayout);
 
         mChampion = getIntent().getParcelableExtra(CHAMPION_EXTRA);
+
         Glide.with(this).load(mChampion.getDefaultImage()).into(heroImageView);
 
         RequestOptions options = new RequestOptions();
@@ -74,7 +74,6 @@ public class ChampionDetailActivity extends AppCompatActivity {
             @Override
             public void onOffsetChanged(AppBarLayout appBarLayout, int verticalOffset) {
                 float offsetAlpha = (appBarLayout.getY() / appBarLayout.getTotalScrollRange());
-
                 float alpha = 1 - (offsetAlpha * -1);
                 if (alpha < 0.5) {
                     alpha = 0;
