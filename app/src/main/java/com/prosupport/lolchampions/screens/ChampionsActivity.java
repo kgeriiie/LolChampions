@@ -1,13 +1,11 @@
 package com.prosupport.lolchampions.screens;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -68,7 +66,7 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
             }
             @Override
             public boolean onQueryTextChange(String s) {
-                mAdapter.searchFor(s);
+                //TODO kereses
                 return false;
             }
         });
@@ -99,10 +97,6 @@ public class ChampionsActivity extends AppCompatActivity implements OnChampionsR
 
     @Override
     public void onItemClick(int position, Champion item) {
-        Log.d("ChampionsActivity", item.title);
-        Intent detailIntent = new Intent(this, ChampionDetailActivity.class);
-        detailIntent.putExtra(ChampionDetailActivity.CHAMPION_EXTRA, item);
-        startActivity(detailIntent);
-        overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
+        //TODO detailre ugras
     }
 }
