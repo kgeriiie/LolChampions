@@ -12,7 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".view.SplashActivity"
+        <activity android:name=".screens.SplashActivity"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,10 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".view.ChampionsActivity"
+        <activity android:name=".screens.ChampionsActivity"
             android:theme="@style/SplashScreenTheme"/>
 
-        <activity android:name=".view.ChampionDetailActivity"
+        <activity android:name=".screens.ChampionDetailActivity"
             android:theme="@style/SplashScreenTheme"/>
     </application>
 
