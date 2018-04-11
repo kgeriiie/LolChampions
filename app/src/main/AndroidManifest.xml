@@ -13,6 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".screens.SplashActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashScreenTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,9 +23,11 @@
         </activity>
 
         <activity android:name=".screens.ChampionsActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashScreenTheme"/>
 
         <activity android:name=".screens.ChampionDetailActivity"
+            android:screenOrientation="portrait"
             android:theme="@style/SplashScreenTheme"/>
     </application>
 

@@ -22,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
                 startActivity(championsIntent);
                 overridePendingTransition(R.anim.anim_slide_in_left, R.anim.anim_slide_out_left);
             }
-        }, 500);
+        }, 1000);
 
     }
 

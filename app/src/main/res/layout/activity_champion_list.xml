@@ -12,31 +12,23 @@
         android:id="@+id/defaultDetailAppbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:minHeight="?android:attr/actionBarSize"
-        android:fitsSystemWindows="true">
+        android:background="@android:color/transparent">
 
-        <FrameLayout
-            android:id="@+id/toolbarContainer"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:minHeight="?android:attr/actionBarSize">
+            android:layout_height="wrap_content">
 
             <ImageView
                 android:layout_width="match_parent"
                 android:layout_height="80dp"
-                android:background="@drawable/toolbar_bg"
-                android:src="@drawable/toolbar_bg"
-                android:layout_gravity="center"/>
+                android:background="@drawable/toolbar_bg"/>
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_height="?android:attr/actionBarSize"
                 android:layout_width="match_parent"
-                android:layout_gravity="bottom"
-                android:elevation="3dp"
-                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
-                app:layout_collapseMode="pin"/>
+                android:layout_alignParentBottom="true"
+                app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"/>
 
             <ImageView
                 android:id="@+id/appLogoIv"
@@ -44,10 +36,11 @@
                 android:layout_height="?android:attr/actionBarSize"
                 android:padding="5dp"
                 android:alpha="0.8"
+                android:visibility="visible"
                 android:src="@drawable/lol_logo_light"
-                android:layout_gravity="bottom|center"/>
-        </FrameLayout>
-
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"/>
+        </RelativeLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v7.widget.RecyclerView
@@ -56,4 +49,5 @@
         android:layout_height="match_parent"
         android:clipToPadding="false"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
 </android.support.design.widget.CoordinatorLayout>
