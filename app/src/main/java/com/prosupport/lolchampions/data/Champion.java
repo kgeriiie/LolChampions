@@ -12,6 +12,7 @@ import java.util.List;
 public class Champion implements Parcelable {
     public int id;
     public String name;
+    public String key;
     @SerializedName("lore")
     public String description;
     public String title;
@@ -36,7 +37,7 @@ public class Champion implements Parcelable {
 
     public String getDefaultSkinImage() {
         if (!skins.isEmpty()) {
-            return skins.get(0).getSkinImageUrl(name);
+            return skins.get(0).getSkinImageUrl(key);
         }
 
         return null;
@@ -49,6 +50,7 @@ public class Champion implements Parcelable {
     protected Champion(Parcel in) {
         id = in.readInt();
         name = in.readString();
+        key = in.readString();
         description = in.readString();
         title = in.readString();
         image = in.readParcelable(Image.class.getClassLoader());
@@ -64,6 +66,7 @@ public class Champion implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeInt(id);
         dest.writeString(name);
+        dest.writeString(key);
         dest.writeString(description);
         dest.writeString(title);
         dest.writeParcelable(image, flags);

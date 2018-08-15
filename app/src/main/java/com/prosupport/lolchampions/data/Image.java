@@ -8,11 +8,11 @@ import com.prosupport.lolchampions.Constants;
 public class Image implements Parcelable {
     private String group;
     @SerializedName("full")
-    private String name;
+    private String key;
 
     public String getImageUrl() {
-        if (group != null && name != null) {
-            return String.format(Constants.IMG_BASE_URL, group, name);
+        if (group != null && key != null) {
+            return String.format(Constants.IMG_BASE_URL, group, key);
         }
 
         return null;
@@ -30,7 +30,7 @@ public class Image implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.group);
-        dest.writeString(this.name);
+        dest.writeString(this.key);
     }
 
     public Image() {
@@ -38,7 +38,7 @@ public class Image implements Parcelable {
 
     protected Image(Parcel in) {
         this.group = in.readString();
-        this.name = in.readString();
+        this.key = in.readString();
     }
 
     public static final Parcelable.Creator<Image> CREATOR = new Parcelable.Creator<Image>() {
