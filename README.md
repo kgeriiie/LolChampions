@@ -1,5 +1,5 @@
-League Of Legends Hős listázó app
+League Of Legends heroes list app
 ==================================
-| Hős lista | Hős adatlap |
+| Heroes list | Hero's data |
 | --------- | ----------- |
 |![alt tag](https://github.com/kgeriiie/LolChampions/blob/master/img/hos_listazo.jpg)|![alt tag](https://github.com/kgeriiie/LolChampions/blob/master/img/hos_adatlap.jpg)|
